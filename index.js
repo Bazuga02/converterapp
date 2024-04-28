@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-app.get("/", cors(), (req, res) => {});
+// app.get("/", cors(), (req, res) => {});
 
 app.post("/", async (req, res) => {
   const { email, password } = req.body;
@@ -66,7 +66,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-app.get("/");
+// app.get("/");
 
 app.post("/convertFile", upload.single("file"), (req, res, next) => {
   try {
@@ -111,6 +111,11 @@ app.post("/convertFile", upload.single("file"), (req, res, next) => {
     console.log(err);
     return res.status(500).json({ message: "Internal server error" });
   }
+});
+
+app.get("/", (req, res) => {
+  app.use(express.static(path.resolve(__dirname, "Frontend", "dist")));
+  res.sendFile(path.resolve(__dirname, "Frontend", "dist", "index.html"));
 });
 
 app.listen(port, () => {
