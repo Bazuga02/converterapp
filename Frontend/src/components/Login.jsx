@@ -12,7 +12,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await axios
-        .post(`http://localhost:3000/`, {
+        .post(`https://backend-convertapp.vercel.app/`, {
           email,
           password,
         })

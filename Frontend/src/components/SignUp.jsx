@@ -26,7 +26,7 @@ const Signup = () => {
     }
 
     try {
-      await axios.post(`http://localhost:3000/signup`, {
+      await axios.post(`https://backend-convertapp.vercel.app/signup`, {
         email,
         password,
       });
