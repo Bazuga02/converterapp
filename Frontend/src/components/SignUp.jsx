@@ -26,7 +26,7 @@ const Signup = () => {
     }
 
     try {
-      await axios.post(`${window.location.origin}/signup`, {
+      await axios.post(`http://localhost:3000/signup`, {
         email,
         password,
       });

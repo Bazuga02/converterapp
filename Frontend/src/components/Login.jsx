@@ -12,7 +12,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await axios
-        .post(`${window.location.origin}/`, {
+        .post(`http://localhost:3000/`, {
           email,
           password,
         })

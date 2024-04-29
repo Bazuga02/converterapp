@@ -25,7 +25,7 @@ const Home = () => {
     formData.append("file", selectedFile);
     try {
       const response = await axios.post(
-        `${window.location.origin}/convertFile`,
+        `http://localhost:3000/convertFile`,
         formData,
         {
           responseType: "blob",
